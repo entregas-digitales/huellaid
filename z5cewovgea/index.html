@@ -4,453 +4,72 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>HuellaID App</title>
+<title>HuellaID — Tu kit de identidad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#F0F4FF; --bg-card:#FFFFFF; --fg:#1C2528; --fg-m:#64748B; --fg-f:#94A3B8;
-  --acc:#6990FF; --acc-s:#EEF2FF; --teal:#47C4C0;
-  --cta:#22C55E; --cta-h:#16A34A; --bd:#E2E8F0;
-  --sh:0 2px 18px rgba(105,144,255,.11);
-}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --bg:#0F1923;--bg-card:#162030;--fg:#F0F5FF;--fg-m:#8FA3BF;--fg-f:#4B6080;
-  --bd:#1E3050;--acc-s:#192040;--sh:0 2px 18px rgba(0,0,0,.28);color-scheme:dark;
-}}
-:root[data-theme=dark]{--bg:#0F1923;--bg-card:#162030;--fg:#F0F5FF;--fg-m:#8FA3BF;--fg-f:#4B6080;--bd:#1E3050;--acc-s:#192040;--sh:0 2px 18px rgba(0,0,0,.28);color-scheme:dark;}
-
+:root{--bg:#F0F4FF;--bg-card:#fff;--fg:#1C2528;--fg-m:#64748B;--acc:#6990FF;--acc-s:#EEF2FF;--cta:#22C55E;--bd:#E2E8F0;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-inline:16px;}
-
-.hdr{background:var(--bg-card);border-bottom:1.5px solid var(--bd);padding:14px 20px;margin-inline:-16px;display:flex;align-items:center;justify-content:center;gap:10px;position:sticky;top:env(safe-area-inset-top,0);z-index:50;}
-.logo{font-family:'Poppins',sans-serif;font-size:20px;font-weight:800;color:var(--acc);}
-.wrap{max-width:600px;margin:0 auto;}
-
-/* Steps */
-.steps{display:flex;align-items:center;justify-content:center;gap:10px;padding:22px 0 10px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;}
-.sdot{width:28px;height:28px;border-radius:50%;background:var(--bd);color:var(--fg-m);display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;}
-.sdot.act{background:var(--acc);color:#fff;}
-.sdot.done{background:var(--cta);color:#fff;}
-.sln{flex:1;max-width:60px;height:2px;background:var(--bd);}
-.sln.done{background:var(--cta);}
-.slbl{color:var(--fg-m);}
-.slbl.act{color:var(--acc);}
-
-/* Form */
-.fcard{background:var(--bg-card);border:1.5px solid var(--bd);border-radius:20px;padding:26px 22px;margin-block:16px;box-shadow:var(--sh);}
-.ftitle{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;margin-bottom:4px;}
-.fsub{font-size:14px;color:var(--fg-m);margin-bottom:22px;}
-.fg{display:flex;flex-direction:column;gap:14px;margin-bottom:18px;}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-@media(max-width:440px){.fr{grid-template-columns:1fr;}}
-.f{display:flex;flex-direction:column;gap:5px;}
-label{font-size:13px;font-weight:600;font-family:'Poppins',sans-serif;color:var(--fg-m);letter-spacing:.02em;}
-input[type=text],input[type=date],select{background:var(--bg);border:1.5px solid var(--bd);border-radius:10px;padding:11px 14px;font-family:'Inter',sans-serif;font-size:15px;color:var(--fg);width:100%;transition:border-color .15s;appearance:none;}
-input:focus,select:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(105,144,255,.14);}
-.fsec{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);padding:6px 0 3px;border-bottom:1px solid var(--bd);}
-
-/* Photo */
-.parea{border:2px dashed var(--bd);border-radius:12px;padding:18px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;position:relative;}
-.parea:hover{border-color:var(--acc);background:var(--acc-s);}
-.parea input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.pprev{display:none;justify-content:center;margin-top:10px;}
-.pprev img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--acc);}
-
-/* Color opts */
-.copts{display:flex;gap:10px;flex-wrap:wrap;}
-.copt input[type=radio]{display:none;}
-.copt label{display:flex;align-items:center;gap:7px;padding:7px 14px;border:2px solid var(--bd);border-radius:100px;cursor:pointer;font-size:13px;font-weight:600;color:var(--fg);transition:border-color .15s,background .15s;}
-.copt input:checked+label{border-color:var(--acc);background:var(--acc-s);color:var(--acc);}
-.sw{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
-
-/* Submit */
-.bsub{width:100%;background:var(--cta);color:#fff;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;padding:16px;border-radius:12px;border:none;cursor:pointer;transition:background .15s,transform .1s;letter-spacing:.02em;margin-top:6px;}
-.bsub:hover{background:var(--cta-h);transform:translateY(-1px);}
-
-/* Step 2 */
-.psum{background:var(--bg-card);border:1.5px solid var(--bd);border-radius:16px;padding:18px 20px;margin-block:16px;display:flex;align-items:center;gap:14px;box-shadow:var(--sh);}
-.pthumb{width:56px;height:56px;border-radius:50%;border:3px solid var(--acc);background:var(--acc-s);display:grid;place-items:center;font-size:26px;flex-shrink:0;}
-.psum h3{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;margin-bottom:2px;}
-.psum p{font-size:13px;color:var(--fg-m);}
-.dblk{margin-bottom:28px;}
-.dhdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
-.dtitle{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;display:flex;align-items:center;gap:7px;}
-.bdl{background:var(--acc);color:#fff;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;padding:8px 16px;border-radius:100px;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;transition:background .15s;white-space:nowrap;}
-.bdl:hover{background:#5078EE;}
-.bdl:disabled{opacity:.6;cursor:not-allowed;}
-.bbk{background:none;border:1.5px solid var(--bd);color:var(--fg-m);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;padding:8px 16px;border-radius:100px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:border-color .15s,color .15s;margin-bottom:8px;}
-.bbk:hover{border-color:var(--acc);color:var(--acc);}
-
-/* ── DNI ── */
-.ddni{width:100%;border-radius:16px;padding:18px 20px;color:#fff;position:relative;overflow:hidden;display:flex;align-items:stretch;gap:16px;box-shadow:0 6px 28px rgba(0,0,0,.18);min-height:172px;}
-.ddni.verde{background:linear-gradient(135deg,#2BA9A5,#47C4C0);}
-.ddni.azul{background:linear-gradient(135deg,#4B77EE,#6990FF);}
-.ddni.rosa{background:linear-gradient(135deg,#D946A8,#F472B6);}
-.ddni::before{content:'';position:absolute;top:-30%;right:-10%;width:70%;height:140%;background:rgba(255,255,255,.07);border-radius:50%;pointer-events:none;}
-.dniphc{display:flex;align-items:center;flex-shrink:0;}
-.dniph{width:76px;height:76px;border-radius:12px;background:rgba(255,255,255,.22);border:2.5px solid rgba(255,255,255,.5);display:grid;place-items:center;font-size:36px;overflow:hidden;}
-.dniph img{width:100%;height:100%;object-fit:cover;}
-.dnib{flex:1;display:flex;flex-direction:column;justify-content:space-between;min-width:0;}
-.dnit{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;}
-.dnibr{font-family:'Poppins',sans-serif;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;opacity:.75;}
-.dnil{font-family:'Poppins',sans-serif;font-size:7px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.6;text-align:right;}
-.dninm{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;line-height:1.05;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.dniff{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;}
-.dfl{font-size:7px;opacity:.6;text-transform:uppercase;letter-spacing:.08em;}
-.dfv{font-family:'Poppins',sans-serif;font-size:10px;font-weight:600;}
-.dniid{font-size:7px;opacity:.5;font-family:'Inter',monospace;letter-spacing:.05em;margin-top:7px;}
-
-/* ── PARTIDA ── */
-.dpart{width:100%;background:#FFFEF8;border:2px solid #D4C5A0;border-radius:12px;padding:26px;box-shadow:0 4px 20px rgba(0,0,0,.07);position:relative;}
-.dpart::before{content:'';position:absolute;inset:8px;border:1px solid #D4C5A0;border-radius:5px;pointer-events:none;}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .dpart{background:var(--bg-card);border-color:var(--bd);}:root:not([data-theme=light]) .dpart::before{border-color:var(--bd);}}
-:root[data-theme=dark] .dpart,:root[data-theme=dark] .dpart::before{background:var(--bg-card);border-color:var(--bd);}
-.pcr{text-align:center;font-size:22px;margin-bottom:4px;}
-.ptt{font-family:'Poppins',sans-serif;font-size:13px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:.14em;color:#5C4A1E;margin-bottom:4px;}
-.psb{font-family:'Poppins',sans-serif;font-size:9px;text-align:center;color:#8B7355;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;}
-.phr{border:none;border-top:1px solid #D4C5A0;margin-bottom:14px;}
-.pbdy{font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.95;color:#3D2E0A;text-align:justify;}
-.pbdy strong{font-family:'Poppins',sans-serif;font-weight:700;color:#1C2528;}
-.psgs{display:flex;justify-content:space-around;margin-top:24px;gap:16px;}
-.psg{text-align:center;flex:1;}
-.psgl{border-top:1px solid #5C4A1E;padding-top:5px;font-size:9px;color:#8B7355;font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px;}
-.psgv{font-size:12px;color:#3D2E0A;font-family:'Inter',sans-serif;}
-.pft{text-align:center;font-size:9px;color:#B09060;margin-top:10px;font-family:'Inter',sans-serif;letter-spacing:.05em;}
-
-/* ── CARNET ── */
-.dcar{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.10);}
-.carcv{background:linear-gradient(135deg,#1C2528,#2D4A52);padding:18px 20px;display:flex;align-items:center;gap:14px;color:#fff;}
-.carph{width:60px;height:60px;border-radius:10px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.38);display:grid;place-items:center;font-size:28px;overflow:hidden;flex-shrink:0;}
-.carph img{width:100%;height:100%;object-fit:cover;}
-.cari h3{font-family:'Poppins',sans-serif;font-size:17px;font-weight:800;color:#fff;margin-bottom:1px;}
-.cari p{font-size:12px;opacity:.6;}
-.carbr{font-family:'Poppins',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;opacity:.45;text-transform:uppercase;margin-top:3px;}
-.carbd{background:#fff;padding:14px 20px;border:1.5px solid var(--bd);border-top:none;border-radius:0 0 12px 12px;}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .carbd{background:var(--bg-card);}}
-:root[data-theme=dark] .carbd{background:var(--bg-card);}
-.tblbl{font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--fg-m);margin-bottom:9px;}
-.vtbl{width:100%;border-collapse:collapse;}
-.vtbl th{font-family:'Poppins',sans-serif;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-m);padding:6px 9px;text-align:left;border-bottom:1.5px solid #E2E8F0;background:#F8FAFF;white-space:nowrap;}
-.vtbl td{padding:8px 9px;font-size:12px;color:var(--fg-m);border-bottom:1px solid #F1F5F9;}
-.vtbl tr:last-child td{border-bottom:none;}
-
-/* ── QR ── */
-.dqr{width:100%;max-width:300px;background:#fff;border:1.5px solid var(--bd);border-radius:16px;padding:22px;box-shadow:0 4px 20px rgba(0,0,0,.09);display:flex;flex-direction:column;align-items:center;gap:12px;}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .dqr{background:var(--bg-card);}}
-:root[data-theme=dark] .dqr{background:var(--bg-card);}
-.qrtop{display:flex;align-items:center;gap:8px;}
-.qrlog{font-family:'Poppins',sans-serif;font-size:13px;font-weight:800;color:var(--acc);}
-.qrbx{background:#fff;padding:8px;border-radius:10px;box-shadow:0 1px 8px rgba(0,0,0,.08);}
-#qrc{display:block;}
-.qrnm{font-family:'Poppins',sans-serif;font-size:17px;font-weight:800;color:var(--fg);text-align:center;}
-.qrht{font-size:12px;color:var(--fg-m);text-align:center;line-height:1.5;}
-.qrft{font-family:'Poppins',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-f);}
+body{background:var(--bg);color:var(--fg);font-family:'Inter',sans-serif;padding-inline:16px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:560px;margin:0 auto;padding-block:32px 48px;}
+.hero{text-align:center;margin-bottom:36px;}
+.hero-icon{font-size:56px;margin-bottom:12px;}
+.hero h1{font-family:'Poppins',sans-serif;font-size:26px;font-weight:800;margin-bottom:8px;line-height:1.2;}
+.hero p{font-size:15px;color:var(--fg-m);line-height:1.7;}
+.badge{display:inline-block;background:var(--cta);color:#fff;font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;margin-bottom:16px;letter-spacing:.06em;text-transform:uppercase;}
+.items{display:flex;flex-direction:column;gap:14px;margin-bottom:32px;}
+.item{background:var(--bg-card);border:1.5px solid var(--bd);border-radius:18px;padding:20px;display:flex;align-items:flex-start;gap:14px;box-shadow:0 2px 14px rgba(105,144,255,.09);text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s;}
+.item:hover{border-color:var(--acc);box-shadow:0 4px 20px rgba(105,144,255,.18);}
+.item-icon{font-size:32px;flex-shrink:0;width:52px;height:52px;background:var(--acc-s);border-radius:14px;display:grid;place-items:center;}
+.item-body{flex:1;}
+.item-title{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;margin-bottom:3px;}
+.item-desc{font-size:13px;color:var(--fg-m);line-height:1.5;}
+.item-tag{display:inline-block;background:var(--acc-s);color:var(--acc);font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px;margin-top:6px;font-family:'Poppins',sans-serif;}
+.item-arr{font-size:22px;color:var(--acc);align-self:center;flex-shrink:0;}
+.sep{border:none;border-top:1px solid var(--bd);margin:8px 0;}
+.footer{text-align:center;font-size:12px;color:var(--fg-m);margin-top:32px;line-height:1.8;}
+.footer strong{color:var(--fg);}
 </style>
 </head>
 <body>
-
-<header class="hdr">
-  <span style="font-size:18px">🐾</span>
-  <div class="logo">HuellaID</div>
-</header>
-
 <div class="wrap">
+  <div class="hero">
+    <div class="hero-icon">🐾</div>
+    <div class="badge">✓ Compra confirmada</div>
+    <h1>¡Gracias por tu compra!<br>Acá está todo tu kit</h1>
+    <p>Tocá cada botón para acceder a tu material. <strong>Guardá esta página en favoritos</strong> para acceder siempre.</p>
+  </div>
 
-<div class="steps">
-  <div class="sdot act" id="d1">1</div>
-  <div class="sln" id="ln1"></div>
-  <div class="sdot" id="d2">2</div>
-  <span class="slbl act" id="slbl">Datos de tu mascota</span>
-</div>
-
-<!-- STEP 1 -->
-<div id="s1">
-  <div class="fcard">
-    <div class="ftitle">Registrá a tu mascota 🐶</div>
-    <div class="fsub">Completá los datos para generar todos los documentos personalizados.</div>
-    <form id="pf" novalidate>
-      <div class="fg">
-        <div class="fsec">Tu mascota</div>
-        <div class="f"><label for="pn">Nombre *</label><input type="text" id="pn" placeholder="Ej: Luna, Max, Milo…" required maxlength="30"></div>
-        <div class="fr">
-          <div class="f">
-            <label for="sp">Especie *</label>
-            <select id="sp" required>
-              <option value="" disabled selected>Seleccioná</option>
-              <option>Perro 🐶</option><option>Gato 🐱</option><option>Conejo 🐰</option>
-              <option>Ave 🦜</option><option>Otro</option>
-            </select>
-          </div>
-          <div class="f">
-            <label for="sx">Sexo *</label>
-            <select id="sx" required>
-              <option value="" disabled selected>Seleccioná</option>
-              <option>Macho</option><option>Hembra</option>
-            </select>
-          </div>
-        </div>
-        <div class="fr">
-          <div class="f"><label for="br">Raza</label><input type="text" id="br" placeholder="Ej: Labrador"></div>
-          <div class="f"><label for="cl">Color del pelaje</label><input type="text" id="cl" placeholder="Ej: Dorado, Negro"></div>
-        </div>
-        <div class="fr">
-          <div class="f"><label for="db">Fecha de nacimiento *</label><input type="date" id="db" required></div>
-          <div class="f"><label for="cy">Ciudad / Provincia *</label><input type="text" id="cy" placeholder="Ej: Buenos Aires" required></div>
-        </div>
-        <div class="fsec">Dueño/a</div>
-        <div class="f"><label for="ow">Tu nombre completo *</label><input type="text" id="ow" placeholder="Ej: María González" required></div>
-        <div class="fsec">Foto de tu mascota</div>
-        <div class="parea" id="upa">
-          <input type="file" id="ph" accept="image/*">
-          <div id="uph">
-            <div style="font-size:30px;margin-bottom:6px">📷</div>
-            <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:var(--fg-m)">Tocá para subir una foto <span style="color:var(--fg-f)">(opcional)</span></div>
-            <div style="font-size:12px;color:var(--fg-f);margin-top:3px">JPG o PNG — máx 5MB</div>
-          </div>
-          <div class="pprev" id="ppv"><img id="ppi" src="" alt=""></div>
-        </div>
-        <div class="fsec">Color de los documentos</div>
-        <div class="copts">
-          <div class="copt"><input type="radio" name="dc" id="ca" value="azul" checked><label for="ca"><span class="sw" style="background:#6990FF"></span>Azul</label></div>
-          <div class="copt"><input type="radio" name="dc" id="cv" value="verde"><label for="cv"><span class="sw" style="background:#47C4C0"></span>Verde</label></div>
-          <div class="copt"><input type="radio" name="dc" id="cr" value="rosa"><label for="cr"><span class="sw" style="background:#F472B6"></span>Rosa</label></div>
-        </div>
+  <div class="items">
+    <a class="item" href="app-generador.html">
+      <div class="item-icon">🪪</div>
+      <div class="item-body">
+        <div class="item-title">Generador de documentos</div>
+        <div class="item-desc">Creá el DNI, la Partida de Nacimiento, el Carnet de Vacunas y el Tag QR personalizado de tu mascota.</div>
+        <div class="item-tag">⚡ Disponible ahora</div>
       </div>
-      <button type="submit" class="bsub">✨ Generar mis documentos</button>
-    </form>
+      <div class="item-arr">›</div>
+    </a>
+
+    <a class="item" href="guia-de-uso.html">
+      <div class="item-icon">📖</div>
+      <div class="item-body">
+        <div class="item-title">Guía de uso completa</div>
+        <div class="item-desc">Cómo completar cada documento, cómo imprimirlos y cómo usar el QR de identificación.</div>
+        <div class="item-tag">📄 Guía paso a paso</div>
+      </div>
+      <div class="item-arr">›</div>
+    </a>
+  </div>
+
+  <hr class="sep">
+
+  <div class="footer">
+    <strong>HuellaID</strong> · Kit de Identidad para Mascotas<br>
+    Documentos personalizables y descargables en PDF.<br>
+    Próximo paso: imprimir y plastificar 🐶
   </div>
 </div>
-
-<!-- STEP 2 -->
-<div id="s2" hidden>
-  <button class="bbk" onclick="goBack()">← Volver a editar</button>
-
-  <div class="psum">
-    <div class="pthumb" id="sth">🐾</div>
-    <div><h3 id="snm">—</h3><p id="ssb">—</p></div>
-  </div>
-
-  <!-- DNI -->
-  <div class="dblk">
-    <div class="dhdr">
-      <div class="dtitle">🪪 DNI de tu Mascota</div>
-      <button class="bdl" id="bd-dni" onclick="dl('dni','ddni-el','DNI')">⬇ PDF</button>
-    </div>
-    <div class="ddni azul" id="ddni-el">
-      <div class="dniphc"><div class="dniph" id="dniph">🐾</div></div>
-      <div class="dnib">
-        <div class="dnit">
-          <div class="dnibr">HuellaID</div>
-          <div class="dnil">Identidad Animal<br>Argentina</div>
-        </div>
-        <div class="dninm" id="dninm">—</div>
-        <div class="dniff">
-          <div><div class="dfl">Especie</div><div class="dfv" id="dnisp">—</div></div>
-          <div><div class="dfl">Raza</div><div class="dfv" id="dnibr">—</div></div>
-          <div><div class="dfl">Fecha de Nac.</div><div class="dfv" id="dnidb">—</div></div>
-          <div><div class="dfl">Sexo</div><div class="dfv" id="dnisx">—</div></div>
-        </div>
-        <div class="dniid" id="dniid">ID: —</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PARTIDA -->
-  <div class="dblk">
-    <div class="dhdr">
-      <div class="dtitle">📜 Partida de Nacimiento</div>
-      <button class="bdl" id="bd-part" onclick="dl('part','dpart-el','Partida')">⬇ PDF</button>
-    </div>
-    <div class="dpart" id="dpart-el">
-      <div class="pcr">🏛️</div>
-      <div class="ptt">Partida de Nacimiento</div>
-      <div class="psb">Registro de Identidad Animal · HuellaID</div>
-      <hr class="phr">
-      <div class="pbdy">
-        Se certifica que el/la <strong id="psp">—</strong> de nombre <strong id="pnm">—</strong>,
-        de raza <strong id="pbr">—</strong>, pelaje <strong id="pcl">—</strong>,
-        sexo <strong id="psx">—</strong>, nació el día <strong id="pdb">—</strong> en
-        <strong id="pct">—</strong>, República Argentina.
-        El/la presente animal se encuentra bajo el cuidado de <strong id="pow">—</strong>,
-        quien asume la responsabilidad de su bienestar.
-      </div>
-      <div class="psgs">
-        <div class="psg"><div class="psgl">Dueño/a</div><div class="psgv" id="psow">—</div></div>
-        <div class="psg"><div class="psgl">Registro HuellaID</div><div class="psgv" id="psid">—</div></div>
-      </div>
-      <div class="pft" id="pft">— Emitido por HuellaID · Sin valor legal oficial —</div>
-    </div>
-  </div>
-
-  <!-- CARNET -->
-  <div class="dblk">
-    <div class="dhdr">
-      <div class="dtitle">💉 Carnet de Vacunas</div>
-      <button class="bdl" id="bd-car" onclick="dl('car','dcar-el','Carnet')">⬇ PDF</button>
-    </div>
-    <div class="dcar" id="dcar-el">
-      <div class="carcv">
-        <div class="carph" id="carph">🐾</div>
-        <div class="cari">
-          <h3 id="carnm">—</h3><p id="carsb">—</p>
-          <div class="carbr">🐾 HuellaID · Carnet de Vacunas</div>
-        </div>
-      </div>
-      <div class="carbd">
-        <div class="tblbl">Registro de vacunaciones y desparasitaciones</div>
-        <table class="vtbl">
-          <thead><tr><th>Fecha</th><th>Vacuna / Tratamiento</th><th>Próxima dosis</th><th>Veterinario</th></tr></thead>
-          <tbody>
-            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- QR -->
-  <div class="dblk" style="padding-bottom:32px">
-    <div class="dhdr">
-      <div class="dtitle">🏷️ Tag QR de Identificación</div>
-      <button class="bdl" id="bd-qr" onclick="dl('qr','dqr-el','Tag-QR')">⬇ PDF</button>
-    </div>
-    <div class="dqr" id="dqr-el">
-      <div class="qrtop"><span style="font-size:18px">🐾</span><div class="qrlog">HuellaID</div></div>
-      <div class="qrbx"><div id="qrc" style="width:148px;height:148px"></div></div>
-      <div class="qrnm" id="qrnm">—</div>
-      <div class="qrht">Escaneá con cualquier celular<br>para ver la página de tu mascota 🐾</div>
-      <div class="qrft">huellaID · Identificación Animal</div>
-    </div>
-  </div>
-
-</div><!-- /s2 -->
-</div><!-- /wrap -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-<script>
-'use strict';
-let P={}, photoURL=null;
-
-// Photo upload
-document.getElementById('ph').addEventListener('change',function(){
-  const f=this.files[0];
-  if(!f)return;
-  if(f.size>5*1024*1024){alert('Máx 5MB');return;}
-  const r=new FileReader();
-  r.onload=e=>{
-    photoURL=e.target.result;
-    document.getElementById('ppi').src=photoURL;
-    document.getElementById('ppv').style.display='flex';
-    document.getElementById('uph').style.display='none';
-  };
-  r.readAsDataURL(f);
-});
-
-function uid(){return 'AR-'+Math.random().toString(36).slice(2,6).toUpperCase()+'-'+Date.now().toString(36).slice(-4).toUpperCase();}
-function fmtL(d){if(!d)return '—';const[y,m,day]=d.split('-');const ms=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];return `${+day} de ${ms[+m-1]} de ${y}`;}
-function fmtS(d){return d?d.split('-').reverse().join('/'):'—';}
-function emoji(sp){return{Perro:'🐶','Perro 🐶':'🐶',Gato:'🐱','Gato 🐱':'🐱',Conejo:'🐰','Conejo 🐰':'🐰','Ave 🦜':'🦜',Otro:'🐾'}[sp]||'🐾';}
-function spName(sp){return{Perro:'perro','Perro 🐶':'perro',Gato:'gato','Gato 🐱':'gato',Conejo:'conejo','Conejo 🐰':'conejo','Ave 🦜':'ave',Otro:'animal'}[sp]||'animal';}
-function setPhoto(el){if(photoURL){el.innerHTML=`<img src="${photoURL}" alt="">`;}else{el.innerHTML=emoji(P.sp);}}
-
-function populate(id){
-  // Summary
-  const th=document.getElementById('sth');
-  if(photoURL)th.innerHTML=`<img src="${photoURL}" style="width:56px;height:56px;border-radius:50%;object-fit:cover">`;
-  else th.textContent=emoji(P.sp);
-  document.getElementById('snm').textContent=P.name;
-  document.getElementById('ssb').textContent=[P.sp.replace(/ .*/,''),P.br,P.sx].filter(Boolean).join(' · ');
-
-  // DNI
-  document.getElementById('ddni-el').className='ddni '+P.dc;
-  setPhoto(document.getElementById('dniph'));
-  document.getElementById('dninm').textContent=P.name;
-  document.getElementById('dnisp').textContent=P.sp.replace(/ .*/,'');
-  document.getElementById('dnibr').textContent=P.br||'—';
-  document.getElementById('dnidb').textContent=fmtS(P.db);
-  document.getElementById('dnisx').textContent=P.sx;
-  document.getElementById('dniid').textContent='ID: '+id;
-
-  // Partida
-  document.getElementById('psp').textContent=spName(P.sp);
-  document.getElementById('pnm').textContent=P.name;
-  document.getElementById('pbr').textContent=P.br||'sin especificar';
-  document.getElementById('pcl').textContent=P.cl||'sin especificar';
-  document.getElementById('psx').textContent=P.sx;
-  document.getElementById('pdb').textContent=fmtL(P.db);
-  document.getElementById('pct').textContent=P.cy;
-  document.getElementById('pow').textContent=P.ow;
-  document.getElementById('psow').textContent=P.ow;
-  document.getElementById('psid').textContent=id;
-  document.getElementById('pft').textContent=`— Emitido por HuellaID · ${id} · Sin valor legal oficial —`;
-
-  // Carnet
-  setPhoto(document.getElementById('carph'));
-  document.getElementById('carnm').textContent=P.name;
-  document.getElementById('carsb').textContent=[P.sp.replace(/ .*/,''),P.br,P.sx].filter(Boolean).join(' · ')||'—';
-
-  // QR
-  document.getElementById('qrnm').textContent=P.name;
-  const qc=document.getElementById('qrc');
-  qc.innerHTML='';
-  try{new QRCode(qc,{text:`https://huellaid.app/pet/${id}`,width:148,height:148,colorDark:'#1C2528',colorLight:'#FFFFFF',correctLevel:QRCode.CorrectLevel.M});}
-  catch(e){qc.innerHTML='<div style="width:148px;height:148px;display:grid;place-items:center;background:#EEF2FF;border-radius:8px;color:#6990FF;font-size:12px;font-family:Poppins,sans-serif;font-weight:700;text-align:center">QR</div>';}
-}
-
-document.getElementById('pf').addEventListener('submit',function(e){
-  e.preventDefault();
-  const g=id=>document.getElementById(id).value.trim();
-  const name=g('pn'),sp=g('sp'),sx=g('sx'),ow=g('ow'),cy=g('cy'),db=g('db');
-  if(!name||!sp||!sx||!ow||!cy||!db){alert('Completá todos los campos con *');return;}
-  P={name,sp,sx,ow,cy,db,br:g('br')||'Sin especificar',cl:g('cl')||'Sin especificar',dc:document.querySelector('input[name=dc]:checked')?.value||'azul'};
-  const id=uid();
-  populate(id);
-  document.getElementById('s1').hidden=true;
-  document.getElementById('s2').hidden=false;
-  document.getElementById('d1').className='sdot done';
-  document.getElementById('d2').className='sdot act';
-  document.getElementById('ln1').className='sln done';
-  document.getElementById('slbl').textContent='Tus documentos';
-  window.scrollTo({top:0,behavior:'smooth'});
-});
-
-function goBack(){
-  document.getElementById('s2').hidden=true;
-  document.getElementById('s1').hidden=false;
-  document.getElementById('d1').className='sdot act';
-  document.getElementById('d2').className='sdot';
-  document.getElementById('ln1').className='sln';
-  document.getElementById('slbl').textContent='Datos de tu mascota';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-async function dl(key,elId,label){
-  const btn=document.getElementById('bd-'+key);
-  const orig=btn.textContent;
-  btn.textContent='⏳…';btn.disabled=true;
-  const el=document.getElementById(elId);
-  try{
-    const cv=await html2canvas(el,{scale:2,useCORS:true,backgroundColor:null,logging:false});
-    const img=cv.toDataURL('image/jpeg',.95);
-    const pw=cv.width/2,ph=cv.height/2;
-    const{jsPDF}=window.jspdf;
-    const pdf=new jsPDF({orientation:pw>ph?'landscape':'portrait',unit:'px',format:[pw,ph]});
-    pdf.addImage(img,'JPEG',0,0,pw,ph);
-    pdf.save(`${label}-${P.name||'mascota'}.pdf`);
-  }catch(e){
-    alert('Descarga no disponible en la vista previa. Funciona en la versión publicada (GitHub Pages).');
-  }finally{btn.textContent=orig;btn.disabled=false;}
-}
-</script>
 </body>
 </html>
