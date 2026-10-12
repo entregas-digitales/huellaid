@@ -1,0 +1,170 @@
+<title>HuellaID — Oferta Especial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex,nofollow">
+
+<!--
+  OTO 2 — "Pack de Marcos Imprimibles"
+  Precio: ARS 3.990
+  Entrega: link a carpeta con los marcos (PDFs/PNGs)
+  Siguiente paso si acepta: ENTREGA (link al hub HuellaID)
+  Siguiente paso si rechaza: ENTREGA (link al hub HuellaID)
+  CHECKOUT_OTO2: reemplazar con link de Mercado Pago para ARS 3.990
+  HUB_HUELLAID: reemplazar con link real de entrega
+-->
+<style>
+:root{
+  --bg:#F0F5FF;--bg2:#fff;--ink:#1C2528;--ink-m:#4B6380;
+  --acc:#6990FF;--teal:#47C4C0;--cta:#22C55E;--cta-h:#16A34A;
+  --dark:#1C2528;--darker:#0F1A1E;--bd:#DDE6F5;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0D1520;--bg2:#131F2E;--ink:#EEF4FF;--ink-m:#8FA8C8;--bd:#1E3050;color-scheme:dark;
+}}
+:root[data-theme=dark]{--bg:#0D1520;--bg2:#131F2E;--ink:#EEF4FF;--ink-m:#8FA8C8;--bd:#1E3050;color-scheme:dark;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:'Poppins',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:680px;margin:0 auto;padding-inline:20px;}
+
+.oto-banner{background:linear-gradient(135deg,#7C4DFF,#9C6FFF);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:700;letter-spacing:.05em;}
+.oto-banner span{background:rgba(255,255,255,.2);border-radius:4px;padding:2px 8px;margin-inline:4px;}
+
+.oto-header{background:linear-gradient(180deg,var(--darker),#2D1A4A);color:#fff;padding:52px 0 40px;text-align:center;}
+.oto-eyebrow{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#C4B5FD;margin-bottom:12px;}
+.oto-header h1{font-size:clamp(22px,5vw,38px);font-weight:900;text-wrap:balance;line-height:1.15;margin-bottom:14px;}
+.oto-header h1 em{color:var(--teal);font-style:normal;}
+.oto-header p{font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;line-height:1.7;}
+
+.offer-box{background:var(--bg2);border:2px solid var(--bd);border-radius:20px;padding:32px 28px;margin:36px 0 28px;text-align:center;}
+.offer-pretitle{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;}
+.offer-box h2{font-size:clamp(20px,4vw,30px);font-weight:800;margin-bottom:8px;text-wrap:balance;}
+.offer-box .desc{font-family:'Inter',sans-serif;font-size:15px;color:var(--ink-m);max-width:500px;margin:0 auto 24px;line-height:1.7;}
+
+/* Marcos preview grid (CSS) */
+.marcos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 auto 28px;max-width:400px;}
+.marco-card{aspect-ratio:3/4;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:28px;position:relative;overflow:hidden;}
+.marco-card::before{content:'';position:absolute;inset:4px;border-radius:7px;border:3px solid rgba(255,255,255,.4);}
+.marco-1{background:linear-gradient(135deg,#6990FF,#47C4C0);}
+.marco-2{background:linear-gradient(135deg,#F59E0B,#EF4444);}
+.marco-3{background:linear-gradient(135deg,#22C55E,#0EA5E9);}
+.marco-4{background:linear-gradient(135deg,#EC4899,#A855F7);}
+.marco-5{background:linear-gradient(135deg,#1C2528,#3D6070);}
+.marco-6{background:linear-gradient(135deg,#D97706,#92400E);}
+.marco-label{font-size:9px;font-weight:700;color:rgba(255,255,255,.7);position:absolute;bottom:6px;text-transform:uppercase;letter-spacing:.08em;}
+
+.includes{text-align:left;margin:0 auto 28px;max-width:420px;}
+.inc-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:14px;}
+.inc-item:last-child{border-bottom:none;}
+.inc-icon{flex-shrink:0;font-size:18px;}
+.inc-text strong{display:block;font-weight:700;}
+.inc-text span{font-size:12px;color:var(--ink-m);}
+
+.offer-price{margin-bottom:20px;}
+.price-old{font-size:15px;text-decoration:line-through;color:#DC2626;opacity:.7;}
+.price-new{font-size:52px;font-weight:900;color:var(--cta);line-height:1;}
+.price-label{font-size:13px;color:var(--ink-m);}
+
+.cta-yes{display:block;width:100%;max-width:460px;margin:0 auto;background:var(--cta);color:#fff;font-size:18px;font-weight:800;padding:20px 32px;border-radius:14px;text-decoration:none;text-align:center;box-shadow:0 6px 24px rgba(34,197,94,.35);transition:background .15s,transform .1s;line-height:1.3;}
+.cta-yes:hover{background:var(--cta-h);transform:translateY(-2px);}
+.cta-no{display:block;text-align:center;font-size:12px;color:var(--ink-m);margin-top:16px;text-decoration:none;padding:8px;}
+.cta-no:hover{color:var(--ink);}
+
+.delivery-box{background:var(--dark);color:#fff;border-radius:16px;padding:28px;margin:32px 0;text-align:center;}
+.delivery-box h3{font-size:18px;font-weight:800;margin-bottom:8px;}
+.delivery-box p{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.6);margin-bottom:20px;line-height:1.6;}
+.delivery-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:16px;font-weight:700;padding:14px 28px;border-radius:12px;text-decoration:none;transition:opacity .15s;}
+.delivery-btn:hover{opacity:.85;}
+
+footer{text-align:center;padding:24px;font-size:12px;color:var(--ink-m);}
+</style>
+
+<div class="oto-banner">🎁 Última oferta antes de tu entrega — <span>Solo disponible ahora</span></div>
+
+<section class="oto-header">
+  <div class="wrap">
+    <div class="oto-eyebrow">🎨 Complemento ideal para tu Kit</div>
+    <h1>Mostrá los documentos de tu mascota<br><em>con el marco que se merece</em></h1>
+    <p>12 marcos decorativos imprimibles de alta resolución para exhibir el DNI, la Partida y el Carnet de Vacunas de tu compañero con estilo.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="offer-box">
+    <div class="offer-pretitle">Pack exclusivo · solo hoy</div>
+    <h2>🖼️ Pack de 12 Marcos Imprimibles</h2>
+    <p class="desc">Marcos diseñados especialmente para imprimir y exhibir los documentos de HuellaID. Estilo moderno, vintage, tropical y premium. Listos para descargar, imprimir y plastificar.</p>
+
+    <!-- Marcos visual preview -->
+    <div class="marcos-grid">
+      <div class="marco-card marco-1"><span>🐾</span><div class="marco-label">Moderno</div></div>
+      <div class="marco-card marco-2"><span>🌟</span><div class="marco-label">Dorado</div></div>
+      <div class="marco-card marco-3"><span>🌿</span><div class="marco-label">Natural</div></div>
+      <div class="marco-card marco-4"><span>💜</span><div class="marco-label">Floral</div></div>
+      <div class="marco-card marco-5"><span>⭐</span><div class="marco-label">Premium</div></div>
+      <div class="marco-card marco-6"><span>🍂</span><div class="marco-label">Vintage</div></div>
+    </div>
+
+    <div class="includes">
+      <div class="inc-item">
+        <div class="inc-icon">🖼️</div>
+        <div class="inc-text">
+          <strong>12 marcos en alta resolución (300 DPI)</strong>
+          <span>Listos para imprimir en cualquier imprenta · tamaño A4 y carta</span>
+        </div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon">🎨</div>
+        <div class="inc-text">
+          <strong>6 estilos distintos, 2 variantes cada uno</strong>
+          <span>Moderno, dorado, natural, floral, premium y vintage · versión clara y oscura</span>
+        </div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon">📐</div>
+        <div class="inc-text">
+          <strong>Compatible con los 4 documentos</strong>
+          <span>Dimensiones exactas para el DNI, la Partida, el Carnet y el Tag QR</span>
+        </div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon">📥</div>
+        <div class="inc-text">
+          <strong>Descarga inmediata en PDF y PNG</strong>
+          <span>Imprimibles en casa o en imprenta · perfectos para plastificar</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-price">
+      <div class="price-old">Precio normal: $9.990</div>
+      <div class="price-new">$3.990</div>
+      <div class="price-label">ARS · pago único · descarga inmediata</div>
+    </div>
+
+    <a href="CHECKOUT_OTO2_AQUI" class="cta-yes">
+      🖼️ SÍ, QUIERO LOS MARCOS POR $3.990
+    </a>
+    <a href="HUB_HUELLAID_AQUI" class="cta-no">
+      No gracias, ir directo a mi kit →
+    </a>
+  </div>
+
+  <!-- Delivery reminder -->
+  <div class="delivery-box">
+    <h3>🐾 Tu Kit HuellaID ya está esperándote</h3>
+    <p>Tanto si comprás los marcos como si no, tu acceso al generador de documentos está listo. Podés acceder ahora mismo.</p>
+    <a href="HUB_HUELLAID_AQUI" class="delivery-btn">
+      ACCEDER A MI KIT HUELLAID →
+    </a>
+  </div>
+
+  <a href="CHECKOUT_OTO2_AQUI" class="cta-yes" style="max-width:460px;display:block;margin:0 auto 12px;">
+    🖼️ SÍ, AGREGAR LOS MARCOS POR $3.990
+  </a>
+  <a href="HUB_HUELLAID_AQUI" class="cta-no">
+    No, prefiero no tener los marcos. Ir a mi entrega →
+  </a>
+
+</div><!-- /wrap -->
+
+<footer>🐾 HuellaID · Próximo paso: accedé a tu kit.</footer>

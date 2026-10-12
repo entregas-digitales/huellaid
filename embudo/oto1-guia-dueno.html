@@ -1,0 +1,214 @@
+<title>HuellaID — Oferta Exclusiva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex,nofollow">
+
+<!--
+  OTO 1 — "Guía del Dueño Responsable"
+  Precio: ARS 7.990
+  Entrega: link al hub del ebook (a crear con /generador-ebooks)
+  Siguiente paso si acepta: OTO 2 (oto2-pack-marcos.html)
+  Siguiente paso si rechaza: ENTREGA (link al hub HuellaID)
+  CHECKOUT_OTO1: reemplazar con link de Mercado Pago para ARS 7.990
+  HUB_HUELLAID: reemplazar con link real de entrega
+-->
+<style>
+:root{
+  --bg:#F0F5FF;--bg2:#fff;--ink:#1C2528;--ink-m:#4B6380;
+  --acc:#6990FF;--teal:#47C4C0;--cta:#22C55E;--cta-h:#16A34A;
+  --dark:#1C2528;--darker:#0F1A1E;--bd:#DDE6F5;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0D1520;--bg2:#131F2E;--ink:#EEF4FF;--ink-m:#8FA8C8;--bd:#1E3050;color-scheme:dark;
+}}
+:root[data-theme=dark]{--bg:#0D1520;--bg2:#131F2E;--ink:#EEF4FF;--ink-m:#8FA8C8;--bd:#1E3050;color-scheme:dark;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:'Poppins',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:680px;margin:0 auto;padding-inline:20px;}
+
+/* OTO banner */
+.oto-banner{background:linear-gradient(135deg,#DC2626,#EF4444);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:700;letter-spacing:.05em;}
+.oto-banner span{background:rgba(255,255,255,.2);border-radius:4px;padding:2px 8px;margin-inline:4px;}
+
+/* Header */
+.oto-header{background:linear-gradient(180deg,var(--darker),var(--dark));color:#fff;padding:52px 0 40px;text-align:center;}
+.oto-eyebrow{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#FCD34D;margin-bottom:12px;}
+.oto-header h1{font-size:clamp(24px,5vw,40px);font-weight:900;text-wrap:balance;line-height:1.15;margin-bottom:14px;}
+.oto-header h1 em{color:var(--teal);font-style:normal;}
+.oto-header p{font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;line-height:1.7;}
+
+/* Offer box */
+.offer-box{background:var(--bg2);border:2px solid var(--bd);border-radius:20px;padding:32px 28px;margin:36px 0 28px;text-align:center;}
+.offer-pretitle{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;}
+.offer-box h2{font-size:clamp(20px,4vw,30px);font-weight:800;margin-bottom:8px;text-wrap:balance;}
+.offer-box .desc{font-family:'Inter',sans-serif;font-size:15px;color:var(--ink-m);max-width:500px;margin:0 auto 24px;line-height:1.7;}
+
+/* Includes list */
+.includes{text-align:left;margin:0 auto 28px;max-width:420px;}
+.inc-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:14px;}
+.inc-item:last-child{border-bottom:none;}
+.inc-icon{flex-shrink:0;font-size:18px;}
+.inc-text strong{display:block;font-weight:700;}
+.inc-text span{font-size:12px;color:var(--ink-m);}
+
+/* Price */
+.offer-price{margin-bottom:20px;}
+.price-old{font-size:15px;text-decoration:line-through;color:#DC2626;opacity:.7;}
+.price-new{font-size:52px;font-weight:900;color:var(--cta);line-height:1;}
+.price-label{font-size:13px;color:var(--ink-m);}
+
+/* CTA buttons */
+.cta-yes{
+  display:block;width:100%;max-width:460px;margin:0 auto;
+  background:var(--cta);color:#fff;
+  font-size:18px;font-weight:800;
+  padding:20px 32px;border-radius:14px;
+  text-decoration:none;text-align:center;
+  box-shadow:0 6px 24px rgba(34,197,94,.35);
+  transition:background .15s,transform .1s;
+  line-height:1.3;
+}
+.cta-yes:hover{background:var(--cta-h);transform:translateY(-2px);}
+.cta-no{
+  display:block;text-align:center;
+  font-size:12px;color:var(--ink-m);
+  margin-top:16px;text-decoration:none;
+  padding:8px;
+}
+.cta-no:hover{color:var(--ink);}
+
+/* Why section */
+.why{padding:40px 0;}
+.why h3{font-size:20px;font-weight:800;margin-bottom:20px;text-wrap:balance;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:440px){.why-grid{grid-template-columns:1fr;}}
+.why-card{background:var(--bg2);border:1.5px solid var(--bd);border-radius:12px;padding:16px;}
+.why-card-icon{font-size:22px;margin-bottom:8px;}
+.why-card h4{font-size:14px;font-weight:700;margin-bottom:4px;}
+.why-card p{font-size:12px;color:var(--ink-m);line-height:1.5;}
+
+/* Guarantee */
+.guar{background:var(--dark);color:#fff;padding:28px;border-radius:16px;display:flex;gap:16px;align-items:flex-start;margin:8px 0 32px;}
+.guar-icon{font-size:32px;flex-shrink:0;}
+.guar h4{font-weight:700;margin-bottom:4px;}
+.guar p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;}
+
+footer{text-align:center;padding:24px;font-size:12px;color:var(--ink-m);}
+</style>
+
+<!-- OTO banner -->
+<div class="oto-banner">⚡ OFERTA ÚNICA — Solo disponible <span>en este momento</span> · No vuelve a aparecer</div>
+
+<!-- Header -->
+<section class="oto-header">
+  <div class="wrap">
+    <div class="oto-eyebrow">🎉 ¡Felicitaciones! Tu pago fue procesado</div>
+    <h1>Antes de acceder al kit:<br><em>una oferta que no vas a encontrar en ningún otro lado</em></h1>
+    <p>Tu Kit HuellaID ya está listo. Pero antes de entregártelo, tenemos algo especial que se complementa perfectamente con lo que acabás de comprar.</p>
+  </div>
+</section>
+
+<!-- Main offer -->
+<div class="wrap">
+  <div class="offer-box">
+    <div class="offer-pretitle">Incluido solo hoy, a precio exclusivo</div>
+    <h2>📖 Guía del Dueño Responsable</h2>
+    <p class="desc">Todo lo que necesitás saber para proteger a tu mascota: qué hacer si se pierde, cómo preparar un plan de emergencia, primeros auxilios y mucho más. En un PDF claro y completo.</p>
+
+    <div class="includes">
+      <div class="inc-item">
+        <div class="inc-icon">🔍</div>
+        <div class="inc-text">
+          <strong>Plan de emergencia si se pierde</strong>
+          <span>Paso a paso completo: qué hacer en las primeras 24 horas, dónde avisar, cómo difundir</span>
+        </div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon">🩺</div>
+        <div class="inc-text">
+          <strong>Primeros auxilios básicos para mascotas</strong>
+          <span>Las situaciones más comunes: cortes, asfixia, convulsiones, calor extremo</span>
+        </div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon">📅</div>
+        <div class="inc-text">
+          <strong>Calendario anual de cuidados y vacunas</strong>
+          <span>Cuándo vacunar, desparasitar, hacer cada chequeo · editable para completar</span>
+        </div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon">✈️</div>
+        <div class="inc-text">
+          <strong>Checklist de viaje con tu mascota</strong>
+          <span>Todo lo que necesitás llevar, qué documentos presentar, cómo viajar seguros</span>
+        </div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon">🏷️</div>
+        <div class="inc-text">
+          <strong>Guía para hacer la placa del collar en casa</strong>
+          <span>Con los datos del Tag QR de HuellaID · opciones económicas y rápidas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-price">
+      <div class="price-old">Precio normal: $14.990</div>
+      <div class="price-new">$7.990</div>
+      <div class="price-label">ARS · pago único · entrega inmediata</div>
+    </div>
+
+    <a href="CHECKOUT_OTO1_AQUI" class="cta-yes">
+      ✅ SÍ, QUIERO LA GUÍA POR $7.990
+    </a>
+    <a href="oto2-pack-marcos.html" class="cta-no">
+      No gracias, no necesito la guía. Ir a mi entrega →
+    </a>
+  </div>
+
+  <!-- Why section -->
+  <section class="why">
+    <h3>¿Por qué te conviene tenerla?</h3>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-icon">⚡</div>
+        <h4>Preparación inmediata</h4>
+        <p>Cuando algo pasa con tu mascota, el tiempo vale oro. Esta guía te da el protocolo exacto para actuar rápido y bien.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">🤝</div>
+        <h4>Complemento perfecto</h4>
+        <p>Tu mascota ya tiene su identidad con HuellaID. Ahora también tiene un dueño preparado para cualquier emergencia.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">📱</div>
+        <h4>Siempre disponible</h4>
+        <p>PDF descargable, guardalo en el celular. Cuando lo necesitás, lo abrís en segundos, sin depender de internet.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">💰</div>
+        <h4>Solo disponible hoy</h4>
+        <p>Este precio especial es exclusivo para los clientes nuevos de HuellaID. Una vez que salgas, no vuelve a estar disponible.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="guar">
+    <div class="guar-icon">🛡️</div>
+    <div>
+      <h4>Misma garantía de 7 días</h4>
+      <p>Si la guía no cumple tus expectativas, te devolvemos el dinero. Sin preguntas. La garantía cubre ambas compras.</p>
+    </div>
+  </div>
+
+  <a href="CHECKOUT_OTO1_AQUI" class="cta-yes" style="max-width:460px;display:block;margin:0 auto 12px;">
+    ✅ SÍ, AGREGAR LA GUÍA POR $7.990
+  </a>
+  <a href="oto2-pack-marcos.html" class="cta-no">
+    No, prefiero no tener la guía. Ir a mi entrega →
+  </a>
+
+</div><!-- /wrap -->
+
+<footer>🐾 HuellaID · Este mensaje es exclusivo y confidencial.</footer>
